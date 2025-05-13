@@ -100,9 +100,10 @@
     background: radial-gradient(circle at center, rgba(155, 135, 245, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
   }
   
-  /* New styles */
+  /* Sharp border styles */
   .sharp-border {
     border-radius: 0 !important;
+    position: relative;
     clip-path: polygon(
       0 4px, 4px 0,
       calc(100% - 4px) 0, 100% 4px,
@@ -159,5 +160,71 @@
   @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  /* Overlay for demo */
+  .demo-overlay {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    z-index: 50;
+  }
+  
+  /* Chrome Effect */
+  .chrome-effect {
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.03) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.37);
+  }
+  
+  .tooltip-demo {
+    position: absolute;
+    padding: 8px 12px;
+    background: rgba(155, 135, 245, 0.9);
+    border-radius: 0;
+    font-size: 12px;
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    clip-path: polygon(
+      0 4px, 4px 0,
+      calc(100% - 4px) 0, 100% 4px,
+      100% calc(100% - 4px), calc(100% - 4px) 100%,
+      4px 100%, 0 calc(100% - 4px)
+    );
+  }
+  
+  .tooltip-demo::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: rgba(155, 135, 245, 0.9);
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
   }
 }

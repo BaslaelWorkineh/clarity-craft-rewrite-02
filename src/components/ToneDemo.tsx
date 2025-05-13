@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+import { Check, Copy } from "lucide-react";
 
 type ToneOption = "friendly" | "assertive" | "professional" | "empathetic" | "casual" | "apologetic";
 
@@ -39,6 +41,7 @@ export default function ToneDemo() {
   const [displayedText, setDisplayedText] = useState("");
   const [cursorVisible, setCursorVisible] = useState(true);
   const [isTyping, setIsTyping] = useState(false);
+  const [copied, setCopied] = useState(false);
 
   // Typing animation effect
   useEffect(() => {
@@ -72,31 +75,53 @@ export default function ToneDemo() {
     return () => clearInterval(cursorInterval);
   }, []);
 
+  const handleCopy = () => {
+    navigator.clipboard.writeText(TONE_MAPPING[selectedTone].text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
     <section className="py-24 px-6 relative overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-20"></div>
       <div className="absolute inset-0 radial-gradient"></div>
       <div className="spotlight-gradient absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
       
-      <div className="max-w-4xl mx-auto relative z-10">
-        <div className="premium-card sharp-border rounded-2xl p-8 pb-10 border-plus-pattern">
+      <motion.div 
+        className="max-w-4xl mx-auto relative z-10"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+      >
+        <div className="premium-card sharp-border rounded-none p-8 pb-10 border-plus-pattern">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold purple-text-gradient purple-glow">Message Tone Transformer ✨</h2>
             <p className="mt-3 text-foreground/80">Write your message once, transform it into any tone you need</p>
           </div>
           
           <div className="grid md:grid-cols-1 gap-8">
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
               <label className="block text-sm font-medium text-foreground/80 mb-2">Your message</label>
               <textarea 
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full h-32 p-4 rounded-xl bg-black border border-clarity-purple/20 focus:border-clarity-purple/50 focus:ring focus:ring-clarity-purple/20 focus:outline-none sharp-border"
+                className="w-full h-32 p-4 rounded-none bg-black border border-clarity-purple/20 focus:border-clarity-purple/50 focus:ring focus:ring-clarity-purple/20 focus:outline-none sharp-border"
                 placeholder="Type your message here..."
               />
-            </div>
+            </motion.div>
             
-            <div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
               <label className="block text-sm font-medium text-foreground/80 mb-2">Choose tone</label>
               <Tabs value={selectedTone} onValueChange={(val) => setSelectedTone(val as ToneOption)}>
                 <TabsList className="grid grid-cols-2 md:grid-cols-3 gap-2 bg-black/50 sharp-border">
@@ -111,7 +136,12 @@ export default function ToneDemo() {
                   ))}
                 </TabsList>
                 
-                <div className="mt-6">
+                <motion.div 
+                  className="mt-6"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <Card className="bg-black border-clarity-purple/20 sharp-border border-plus-pattern">
                     <CardContent className="p-6">
                       <h3 className="text-clarity-purple font-medium mb-2 text-sm flex items-center">
@@ -120,26 +150,50 @@ export default function ToneDemo() {
                       </h3>
                       <p className="text-white text-lg min-h-[80px]">
                         {displayedText}
-                        {isTyping && cursorVisible && <span className="animate-blink">|</span>}
-                        {!isTyping && cursorVisible && <span className="animate-blink">|</span>}
+                        {(isTyping || !isTyping) && cursorVisible && <span className="animate-blink ml-0.5">|</span>}
                       </p>
                     </CardContent>
                   </Card>
                   
                   <div className="mt-4 flex justify-between">
-                    <Button variant="ghost" className="text-foreground/70 hover:text-foreground sharp-border">
-                      Copy to clipboard
+                    <Button 
+                      variant="ghost" 
+                      className="text-foreground/70 hover:text-foreground sharp-border flex items-center gap-1"
+                      onClick={handleCopy}
+                    >
+                      {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
+                      {copied ? "Copied!" : "Copy to clipboard"}
                     </Button>
                     <Button className="bg-clarity-purple hover:bg-clarity-purple/90 purple-button-glow sharp-border">
                       Save to history
                     </Button>
                   </div>
-                </div>
+                </motion.div>
               </Tabs>
-            </div>
+            </motion.div>
           </div>
         </div>
-      </div>
+
+        <motion.div 
+          className="mt-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-2xl font-bold text-gradient">Works where you work</h3>
+          <p className="mt-3 text-foreground/80 max-w-2xl mx-auto">
+            Our browser extension brings tone control to Gmail, Slack, LinkedIn, Twitter, and more.
+          </p>
+          <div className="flex flex-wrap justify-center gap-6 mt-6">
+            {["Gmail", "Slack", "LinkedIn", "Twitter", "Notion"].map((app) => (
+              <div key={app} className="glass-morphism sharp-border py-2 px-4">
+                {app}
+              </div>
+            ))}
+          </div>
+        </motion.div>
+      </motion.div>
     </section>
   );
 }

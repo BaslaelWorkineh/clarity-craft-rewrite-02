@@ -1,12 +1,12 @@
 
 import Navbar from "@/components/Navbar";
-import HeroSection from "@/components/HeroSection";
 import ToneDemo from "@/components/ToneDemo";
 import Features from "@/components/Features";
 import PricingSection from "@/components/PricingSection";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { SparklesHero, SparklesFeatures } from "@/components/SparklesDemo";
+import { motion } from "framer-motion";
 
 const Index = () => {
   return (
@@ -15,10 +15,72 @@ const Index = () => {
       <Navbar />
       <main className="flex-grow relative z-10">
         <SparklesHero />
+        
+        <motion.div 
+          className="py-16 px-6 relative" 
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <div className="max-w-6xl mx-auto text-center">
+            <h2 className="text-3xl font-bold purple-text-gradient purple-glow">How ClarityBubble Works</h2>
+            <p className="mt-4 text-foreground/80 max-w-2xl mx-auto">
+              Our AI-powered tone detection and modification system helps you communicate effectively in any situation
+            </p>
+            
+            <div className="mt-12 grid md:grid-cols-3 gap-8">
+              {[
+                { step: "01", title: "Write your message", description: "Enter your message in any platform or in our app." },
+                { step: "02", title: "Choose a tone", description: "Select from professional, friendly, assertive, and more." },
+                { step: "03", title: "Get perfect tone", description: "Instantly see your message transformed for perfect impact." }
+              ].map((item, index) => (
+                <motion.div 
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="glass-morphism sharp-border p-6 relative"
+                >
+                  <div className="absolute -top-4 -left-4 w-8 h-8 bg-clarity-purple text-white flex items-center justify-center sharp-border">
+                    {item.step}
+                  </div>
+                  <h3 className="text-xl font-bold mb-3 mt-2">{item.title}</h3>
+                  <p className="text-foreground/80">{item.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
+        
         <ToneDemo />
+        <Features />
         <SparklesFeatures />
         <PricingSection />
         <CTASection />
+
+        <motion.div 
+          className="py-16 px-6 relative overflow-hidden"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+        >
+          <div className="absolute inset-0 grid-bg opacity-20"></div>
+          <div className="spotlight-gradient absolute top-0 right-1/4"></div>
+          
+          <div className="max-w-5xl mx-auto text-center relative z-10">
+            <h2 className="text-4xl font-bold text-gradient mb-8">Used by teams at</h2>
+            <div className="flex flex-wrap justify-center gap-12 items-center">
+              {["Company 1", "Company 2", "Company 3", "Company 4", "Company 5"].map((company, index) => (
+                <div key={index} className="text-xl font-bold text-foreground/50">
+                  {company}
+                </div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </main>
       <Footer />
     </div>
