@@ -1,15 +1,26 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { SparklesCore } from "@/components/ui/sparkles";
 
 export default function CTASection() {
   return (
     <section className="py-20 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="glass-morphism rounded-3xl p-12 relative overflow-hidden">
-          <div className="absolute inset-0 bg-gradient-to-br from-clarity-purple/20 to-transparent opacity-50"></div>
+          <div className="absolute inset-0 w-full h-full opacity-30">
+            <SparklesCore
+              background="transparent"
+              minSize={0.2}
+              maxSize={0.8}
+              particleDensity={100}
+              particleColor="#9b87f5"
+              speed={0.4}
+              className="w-full h-full"
+            />
+          </div>
           
-          <div className="relative text-center">
+          <div className="relative text-center z-10">
             <h2 className="text-3xl font-bold text-gradient">Ready to transform your communication?</h2>
             <p className="mt-4 text-lg text-foreground/80 max-w-xl mx-auto">
               Join thousands of professionals who use Clarity Bubble to communicate with confidence.
