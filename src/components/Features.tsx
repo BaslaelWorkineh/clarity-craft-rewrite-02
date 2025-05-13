@@ -1,28 +1,28 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Smartphone, ScrollText, Brain, BarChart3 } from "lucide-react";
 import { motion } from "framer-motion";
 
 const FEATURES = [
   {
     title: "Browser Extensions",
     description: "Transform your messages directly in Gmail, Slack, LinkedIn, and other platforms with our browser plugin.",
-    icon: "📱"
+    icon: <Smartphone className="w-6 h-6" />
   },
   {
     title: "Tone Templates",
     description: "Access pre-made templates for common situations like asking for a raise or rejecting a meeting.",
-    icon: "📝"
+    icon: <ScrollText className="w-6 h-6" />
   },
   {
     title: "AI Memory",
     description: "Our AI learns your preferred tones over time and suggests rewrites automatically.",
-    icon: "🧠"
+    icon: <Brain className="w-6 h-6" />
   },
   {
     title: "Tone Analytics",
     description: "Get insights into your communication patterns with weekly reports on your messaging style.",
-    icon: "📊"
+    icon: <BarChart3 className="w-6 h-6" />
   }
 ];
 
@@ -50,7 +50,7 @@ export default function Features() {
               <Card className="premium-card rounded-none sharp-border border-plus-pattern hover:border-clarity-purple/30 transition-all duration-300 hover:transform hover:-translate-y-1 overflow-hidden bg-black">
                 <CardContent className="p-8">
                   <div className="w-12 h-12 rounded-none sharp-border bg-clarity-purple/20 flex items-center justify-center mb-4">
-                    <span className="text-clarity-purple text-2xl">{feature.icon}</span>
+                    <span className="text-clarity-purple">{feature.icon}</span>
                   </div>
                   <h3 className="text-xl font-bold mb-2 text-white">{feature.title}</h3>
                   <p className="text-foreground/80 mb-4">{feature.description}</p>

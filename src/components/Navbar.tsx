@@ -1,9 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
+  const location = useLocation();
+  
   return (
     <nav className="fixed w-full top-0 z-50 py-4 px-6 md:px-12">
       <div className="max-w-5xl mx-auto glass-morphism sharp-border border-plus-pattern">
@@ -12,7 +14,7 @@ export default function Navbar() {
             {/* Empty space for alignment */}
           </div>
           
-          <div className="flex items-center gap-1">
+          <Link to="/" className="flex items-center gap-1">
             <div className="h-9 w-9 sharp-border bg-gradient-to-br from-clarity-purple to-clarity-deep-purple flex items-center justify-center">
               <span className="text-white font-bold">CB</span>
             </div>
@@ -20,13 +22,33 @@ export default function Navbar() {
             <div className="ml-1 px-2 py-0.5 text-[10px] font-medium bg-clarity-purple/20 text-clarity-purple sharp-border">
               BETA
             </div>
-          </div>
+          </Link>
           
           <div className="flex-1 flex items-center justify-center gap-6 mx-auto">
-            <Link to="#features" className="text-sm text-foreground/80 hover:text-foreground transition-colors">Features</Link>
-            <Link to="#pricing" className="text-sm text-foreground/80 hover:text-foreground transition-colors">Pricing</Link>
-            <Link to="#templates" className="text-sm text-foreground/80 hover:text-foreground transition-colors">Templates</Link>
-            <Link to="#about" className="text-sm text-foreground/80 hover:text-foreground transition-colors">About</Link>
+            <Link 
+              to="/features" 
+              className={`text-sm ${location.pathname === '/features' ? 'text-clarity-purple' : 'text-foreground/80 hover:text-foreground'} transition-colors`}
+            >
+              Features
+            </Link>
+            <Link 
+              to="/pricing" 
+              className={`text-sm ${location.pathname === '/pricing' ? 'text-clarity-purple' : 'text-foreground/80 hover:text-foreground'} transition-colors`}
+            >
+              Pricing
+            </Link>
+            <Link 
+              to="/templates" 
+              className={`text-sm ${location.pathname === '/templates' ? 'text-clarity-purple' : 'text-foreground/80 hover:text-foreground'} transition-colors`}
+            >
+              Templates
+            </Link>
+            <Link 
+              to="/about" 
+              className={`text-sm ${location.pathname === '/about' ? 'text-clarity-purple' : 'text-foreground/80 hover:text-foreground'} transition-colors`}
+            >
+              About
+            </Link>
           </div>
           
           <div className="flex-1 flex justify-end">

@@ -7,6 +7,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { SparklesHero, SparklesFeatures } from "@/components/SparklesDemo";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const Index = () => {
   return (
@@ -29,27 +30,61 @@ const Index = () => {
               Our AI-powered tone detection and modification system helps you communicate effectively in any situation
             </p>
             
-            <div className="mt-12 grid md:grid-cols-3 gap-8">
-              {[
-                { step: "01", title: "Write your message", description: "Enter your message in any platform or in our app." },
-                { step: "02", title: "Choose a tone", description: "Select from professional, friendly, assertive, and more." },
-                { step: "03", title: "Get perfect tone", description: "Instantly see your message transformed for perfect impact." }
-              ].map((item, index) => (
-                <motion.div 
-                  key={index}
+            <div className="mt-12 grid md:grid-cols-2 gap-10">
+              <div className="grid grid-cols-1 gap-8">
+                {[
+                  { step: "01", title: "Write your message", description: "Enter your message in any platform or in our app." },
+                  { step: "02", title: "Choose a tone", description: "Select from professional, friendly, assertive, and more." },
+                  { step: "03", title: "Get perfect tone", description: "Instantly see your message transformed for perfect impact." }
+                ].map((item, index) => (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="glass-morphism sharp-border p-6 relative border-2 border-clarity-purple/30"
+                  >
+                    <div className="absolute -top-4 -left-4 w-8 h-8 bg-clarity-purple text-white flex items-center justify-center sharp-border">
+                      {item.step}
+                    </div>
+                    <h3 className="text-xl font-bold mb-3 mt-2">{item.title}</h3>
+                    <p className="text-foreground/80">{item.description}</p>
+                  </motion.div>
+                ))}
+                
+                <motion.a
+                  href="#features"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
                   viewport={{ once: true }}
-                  className="glass-morphism sharp-border p-6 relative"
+                  className="bg-clarity-purple text-white py-3 px-6 mt-4 sharp-border flex items-center justify-center gap-2 group hover:bg-clarity-purple/90 transition-colors purple-button-glow w-full md:w-1/2 mx-auto"
                 >
-                  <div className="absolute -top-4 -left-4 w-8 h-8 bg-clarity-purple text-white flex items-center justify-center sharp-border">
-                    {item.step}
+                  <span>Explore features</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </motion.a>
+              </div>
+              
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="flex items-center justify-center"
+              >
+                <div className="premium-card sharp-border w-full h-[400px] border-clarity-purple/40 border-[3px] flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute inset-0 grid-bg opacity-30"></div>
+                  <div className="spotlight-gradient absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                  <div className="text-center relative z-10">
+                    <div className="text-clarity-purple font-bold text-lg mb-3">ClarityBubble in action</div>
+                    <p className="text-sm text-white/70 max-w-[250px] mx-auto">
+                      Watch how our AI transforms your message in real-time to match your desired tone
+                    </p>
+                    <div className="mt-4 text-clarity-purple/80">[Animation will appear here]</div>
                   </div>
-                  <h3 className="text-xl font-bold mb-3 mt-2">{item.title}</h3>
-                  <p className="text-foreground/80">{item.description}</p>
-                </motion.div>
-              ))}
+                </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>
