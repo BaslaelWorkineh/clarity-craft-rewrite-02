@@ -1,6 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Check } from "lucide-react";
+import { motion } from "framer-motion";
 
 const PRICING_PLANS = [
   {
@@ -65,14 +66,18 @@ export default function PricingSection() {
         
         <div className="grid md:grid-cols-3 gap-8">
           {PRICING_PLANS.map((plan, index) => (
-            <div 
+            <motion.div 
               key={index} 
               className={`${plan.popular ? 'premium-card' : 'glass-morphism'} rounded-none sharp-border border-plus-pattern p-8 ${plan.popular ? 'border-clarity-purple ring-1 ring-clarity-purple/30' : 'border-white/10'} relative transform transition-all duration-300 hover:-translate-y-1`}
+              whileHover={plan.popular ? { boxShadow: "0 0 25px rgba(155, 135, 245, 0.5)" } : {}}
             >
               {plan.popular && (
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-clarity-purple text-white text-xs font-bold px-4 py-1 rounded-none sharp-border">
-                  MOST POPULAR
-                </div>
+                <>
+                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-clarity-purple text-white text-xs font-bold px-4 py-1 rounded-none sharp-border">
+                    MOST POPULAR
+                  </div>
+                  <div className="premium-shine"></div>
+                </>
               )}
               
               <div className="text-center">
@@ -95,12 +100,12 @@ export default function PricingSection() {
               
               <div className="mt-8">
                 <Button 
-                  className={`w-full sharp-border ${plan.popular ? 'bg-clarity-purple hover:bg-clarity-purple/90 purple-button-glow' : 'bg-black border border-white/10 hover:bg-white/5'}`}
+                  className={`w-full sharp-border text-white ${plan.popular ? 'bg-clarity-purple hover:bg-clarity-purple/90 purple-button-glow' : 'bg-black border border-white/10 hover:bg-white/5'}`}
                 >
                   {plan.cta}
                 </Button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

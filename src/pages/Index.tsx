@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { SparklesHero, SparklesFeatures } from "@/components/SparklesDemo";
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MessageSquare, Wand2, ZapIcon } from "lucide-react";
 
 const Index = () => {
   return (
@@ -48,6 +48,8 @@ const Index = () => {
                     <div className="absolute -top-4 -left-4 w-8 h-8 bg-clarity-purple text-white flex items-center justify-center sharp-border">
                       {item.step}
                     </div>
+                    <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-clarity-purple"></div>
+                    <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-clarity-purple"></div>
                     <h3 className="text-xl font-bold mb-3 mt-2">{item.title}</h3>
                     <p className="text-foreground/80">{item.description}</p>
                   </motion.div>
@@ -81,7 +83,11 @@ const Index = () => {
                     <p className="text-sm text-white/70 max-w-[250px] mx-auto">
                       Watch how our AI transforms your message in real-time to match your desired tone
                     </p>
-                    <div className="mt-4 text-clarity-purple/80">[Animation will appear here]</div>
+                    <div className="mt-6">
+                      <div className="w-[280px] h-[180px] mx-auto border-2 border-dashed border-clarity-purple/50 flex items-center justify-center">
+                        <p className="text-clarity-purple/80">Animation GIF placeholder</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </motion.div>

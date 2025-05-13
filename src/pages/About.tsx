@@ -2,14 +2,37 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
-import { Users, Trophy, Globe, Calendar } from "lucide-react";
+import { MessageCircle, Users, Code, Clock } from "lucide-react";
 
 const AboutPage = () => {
+  const teamMembers = [
+    {
+      name: "Alex Johnson",
+      role: "CEO & Founder",
+      image: "https://i.pravatar.cc/150?img=1"
+    },
+    {
+      name: "Sarah Lee",
+      role: "CTO",
+      image: "https://i.pravatar.cc/150?img=5"
+    },
+    {
+      name: "Michael Chen",
+      role: "Lead AI Engineer",
+      image: "https://i.pravatar.cc/150?img=3"
+    },
+    {
+      name: "Aisha Patel",
+      role: "Head of Product",
+      image: "https://i.pravatar.cc/150?img=9"
+    }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col bg-black text-white">
       <div className="fixed inset-0 grid-bg opacity-20 pointer-events-none"></div>
       <Navbar />
-      <main className="flex-grow relative z-10 mt-32">
+      <main className="flex-grow relative z-10 mt-32 pb-16">
         <motion.div 
           className="py-8 px-6"
           initial={{ opacity: 0 }}
@@ -17,59 +40,74 @@ const AboutPage = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="max-w-6xl mx-auto text-center">
-            <h1 className="text-5xl font-bold purple-text-gradient purple-glow">About ClarityBubble</h1>
+            <h1 className="text-5xl font-bold purple-text-gradient purple-glow">About Us</h1>
             <p className="mt-4 text-xl text-foreground/80 max-w-2xl mx-auto">
-              Our story, mission, and the team behind the technology
+              We're building the future of communication through AI
             </p>
           </div>
         </motion.div>
-        
+
         <section className="py-16 px-6 relative">
           <div className="absolute inset-0 grid-bg opacity-20"></div>
           <div className="spotlight-gradient absolute top-1/4 right-1/4"></div>
           
-          <div className="max-w-4xl mx-auto relative z-10">
-            <div className="premium-card sharp-border p-8 border-clarity-purple/30">
-              <h2 className="text-3xl font-bold mb-6 purple-text-gradient">Our Mission</h2>
-              <p className="text-foreground/90 text-lg mb-6">
-                ClarityBubble was founded with a simple yet powerful mission: to help people communicate more effectively in every situation. We believe that the right words, delivered in the right tone, can transform relationships, careers, and outcomes.
-              </p>
-              <p className="text-foreground/90 text-lg">
-                Our AI-powered platform analyzes and optimizes communication in real-time, ensuring your message has the intended impact every time. Whether you're drafting an important email, responding to a difficult message, or trying to strike the perfect tone in a professional setting, ClarityBubble helps you find the words that work.
+          <div className="max-w-6xl mx-auto relative z-10">
+            <div className="text-center mb-16">
+              <h2 className="text-3xl font-bold purple-text-gradient">Our Mission</h2>
+              <p className="mt-6 text-lg text-foreground/80 max-w-3xl mx-auto">
+                At ClarityBubble, we believe that effective communication is the foundation of personal and professional success. Our mission is to empower people with AI-powered tools that help them communicate with clarity, confidence, and intention in every situation.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
-              <div className="glass-morphism sharp-border p-6 border-clarity-purple/30">
-                <Users className="w-12 h-12 text-clarity-purple mb-4" />
-                <h3 className="text-xl font-bold mb-3">Our Team</h3>
-                <p className="text-foreground/80">
-                  Led by communication experts, linguists, and AI specialists, our diverse team is passionate about the power of effective communication.
-                </p>
-              </div>
-              
-              <div className="glass-morphism sharp-border p-6 border-clarity-purple/30">
-                <Trophy className="w-12 h-12 text-clarity-purple mb-4" />
-                <h3 className="text-xl font-bold mb-3">Our Achievements</h3>
-                <p className="text-foreground/80">
-                  Recognized as a leader in AI communication tools, with multiple industry awards and over 1 million messages transformed.
-                </p>
-              </div>
-              
-              <div className="glass-morphism sharp-border p-6 border-clarity-purple/30">
-                <Globe className="w-12 h-12 text-clarity-purple mb-4" />
-                <h3 className="text-xl font-bold mb-3">Global Impact</h3>
-                <p className="text-foreground/80">
-                  Used by professionals in over 30 countries, helping people connect across languages, cultures, and contexts.
-                </p>
-              </div>
-              
-              <div className="glass-morphism sharp-border p-6 border-clarity-purple/30">
-                <Calendar className="w-12 h-12 text-clarity-purple mb-4" />
-                <h3 className="text-xl font-bold mb-3">Our Journey</h3>
-                <p className="text-foreground/80">
-                  Founded in 2022, we've grown from a small startup to a trusted communication partner for individuals and organizations worldwide.
-                </p>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+              {[
+                { title: "Clear Communication", description: "We help people express themselves clearly and effectively", icon: <MessageCircle className="w-6 h-6" /> },
+                { title: "For Everyone", description: "Our tools are designed for individuals and teams of all sizes", icon: <Users className="w-6 h-6" /> },
+                { title: "Cutting-edge AI", description: "We're constantly improving our AI models for better results", icon: <Code className="w-6 h-6" /> },
+                { title: "Save Time", description: "Spend less time drafting messages and more time connecting", icon: <Clock className="w-6 h-6" /> }
+              ].map((value, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="glass-morphism p-6 sharp-border"
+                >
+                  <div className="w-12 h-12 rounded-none sharp-border bg-clarity-purple/20 flex items-center justify-center mb-4">
+                    <span className="text-clarity-purple">{value.icon}</span>
+                  </div>
+                  <h3 className="text-xl font-bold mb-2">{value.title}</h3>
+                  <p className="text-foreground/70">{value.description}</p>
+                </motion.div>
+              ))}
+            </div>
+            
+            <div className="mt-24">
+              <h2 className="text-3xl font-bold purple-text-gradient text-center mb-16">Our Team</h2>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+                {teamMembers.map((member, index) => (
+                  <motion.div 
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="text-center"
+                  >
+                    <div className="w-32 h-32 mx-auto sharp-border overflow-hidden relative">
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-0 left-0 w-4 h-4 border-t-2 border-l-2 border-clarity-purple"></div>
+                      <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-clarity-purple"></div>
+                    </div>
+                    <h3 className="mt-4 font-bold">{member.name}</h3>
+                    <p className="text-sm text-foreground/70">{member.role}</p>
+                  </motion.div>
+                ))}
               </div>
             </div>
           </div>
