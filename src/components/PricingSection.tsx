@@ -55,6 +55,7 @@ export default function PricingSection() {
       {/* Premium grid background */}
       <div className="absolute inset-0 grid-bg opacity-30"></div>
       <div className="absolute inset-0 radial-gradient"></div>
+      <div className="spotlight-gradient-large absolute top-1/4 right-1/4"></div>
       
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
@@ -66,10 +67,10 @@ export default function PricingSection() {
           {PRICING_PLANS.map((plan, index) => (
             <div 
               key={index} 
-              className={`${plan.popular ? 'premium-card' : 'glass-morphism'} rounded-2xl p-8 ${plan.popular ? 'border-clarity-purple ring-1 ring-clarity-purple/30' : 'border-white/10'} relative transform transition-all duration-300 hover:-translate-y-1`}
+              className={`${plan.popular ? 'premium-card' : 'glass-morphism'} rounded-none sharp-border border-plus-pattern p-8 ${plan.popular ? 'border-clarity-purple ring-1 ring-clarity-purple/30' : 'border-white/10'} relative transform transition-all duration-300 hover:-translate-y-1`}
             >
               {plan.popular && (
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-clarity-purple text-white text-xs font-bold px-4 py-1 rounded-full">
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-clarity-purple text-white text-xs font-bold px-4 py-1 rounded-none sharp-border">
                   MOST POPULAR
                 </div>
               )}
@@ -94,7 +95,7 @@ export default function PricingSection() {
               
               <div className="mt-8">
                 <Button 
-                  className={`w-full ${plan.popular ? 'bg-clarity-purple hover:bg-clarity-purple/90 purple-button-glow' : 'bg-black border border-white/10 hover:bg-white/5'}`}
+                  className={`w-full sharp-border ${plan.popular ? 'bg-clarity-purple hover:bg-clarity-purple/90 purple-button-glow' : 'bg-black border border-white/10 hover:bg-white/5'}`}
                 >
                   {plan.cta}
                 </Button>
