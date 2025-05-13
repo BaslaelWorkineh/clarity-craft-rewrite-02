@@ -1,0 +1,32 @@
+
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+
+export default function CTASection() {
+  return (
+    <section className="py-20 px-6">
+      <div className="max-w-4xl mx-auto">
+        <div className="glass-morphism rounded-3xl p-12 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-clarity-purple/20 to-transparent opacity-50"></div>
+          
+          <div className="relative text-center">
+            <h2 className="text-3xl font-bold text-gradient">Ready to transform your communication?</h2>
+            <p className="mt-4 text-lg text-foreground/80 max-w-xl mx-auto">
+              Join thousands of professionals who use Clarity Bubble to communicate with confidence.
+            </p>
+            
+            <div className="mt-8">
+              <Button className="bg-clarity-purple hover:bg-clarity-purple/90 text-white px-8 py-6 rounded-full text-lg flex items-center gap-2 purple-button-glow mx-auto">
+                Get started for free <ArrowRight className="h-5 w-5" />
+              </Button>
+            </div>
+            
+            <p className="mt-4 text-sm text-foreground/60">
+              No credit card required. Free plan includes 10 rewrites per day.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
