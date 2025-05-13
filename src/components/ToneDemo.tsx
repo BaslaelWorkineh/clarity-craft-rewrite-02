@@ -20,9 +20,12 @@ export default function ToneDemo() {
   const [selectedTone, setSelectedTone] = useState<ToneOption>("professional");
 
   return (
-    <section className="py-24 px-6">
-      <div className="max-w-4xl mx-auto">
-        <div className="glass-morphism rounded-2xl p-8 pb-10">
+    <section className="py-24 px-6 relative">
+      <div className="absolute inset-0 grid-bg opacity-20"></div>
+      <div className="absolute inset-0 radial-gradient"></div>
+      
+      <div className="max-w-4xl mx-auto relative z-10">
+        <div className="premium-card rounded-2xl p-8 pb-10">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold purple-text-gradient purple-glow">Message Tone Transformer</h2>
             <p className="mt-3 text-foreground/80">Write your message once, transform it into any tone you need</p>
@@ -34,7 +37,7 @@ export default function ToneDemo() {
               <textarea 
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
-                className="w-full h-32 p-4 rounded-xl bg-white/5 border border-white/10 focus:border-clarity-purple/50 focus:ring focus:ring-clarity-purple/20 focus:outline-none"
+                className="w-full h-32 p-4 rounded-xl bg-black border border-clarity-purple/20 focus:border-clarity-purple/50 focus:ring focus:ring-clarity-purple/20 focus:outline-none"
                 placeholder="Type your message here..."
               />
             </div>
@@ -42,7 +45,7 @@ export default function ToneDemo() {
             <div>
               <label className="block text-sm font-medium text-foreground/80 mb-2">Choose tone</label>
               <Tabs value={selectedTone} onValueChange={(val) => setSelectedTone(val as ToneOption)}>
-                <TabsList className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                <TabsList className="grid grid-cols-2 md:grid-cols-3 gap-2 bg-black/50">
                   <TabsTrigger value="friendly" className="data-[state=active]:bg-clarity-purple">Friendly</TabsTrigger>
                   <TabsTrigger value="assertive" className="data-[state=active]:bg-clarity-purple">Assertive</TabsTrigger>
                   <TabsTrigger value="professional" className="data-[state=active]:bg-clarity-purple">Professional</TabsTrigger>
@@ -52,7 +55,7 @@ export default function ToneDemo() {
                 </TabsList>
                 
                 <div className="mt-6">
-                  <Card className="bg-black/40 border-white/10">
+                  <Card className="bg-black border-clarity-purple/20">
                     <CardContent className="p-6">
                       <h3 className="text-clarity-purple font-medium mb-2 text-sm">Transformed message:</h3>
                       <p className="text-white text-lg">{TONE_MAPPING[selectedTone]}</p>
@@ -63,7 +66,7 @@ export default function ToneDemo() {
                     <Button variant="ghost" className="text-foreground/70 hover:text-foreground">
                       Copy to clipboard
                     </Button>
-                    <Button className="bg-clarity-purple hover:bg-clarity-purple/90">
+                    <Button className="bg-clarity-purple hover:bg-clarity-purple/90 purple-button-glow">
                       Save to history
                     </Button>
                   </div>

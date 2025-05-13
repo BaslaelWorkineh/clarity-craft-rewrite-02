@@ -5,9 +5,12 @@ import { SparklesCore } from "@/components/ui/sparkles";
 
 export default function CTASection() {
   return (
-    <section className="py-20 px-6">
-      <div className="max-w-4xl mx-auto">
-        <div className="glass-morphism rounded-3xl p-12 relative overflow-hidden">
+    <section className="py-20 px-6 relative">
+      <div className="absolute inset-0 grid-bg opacity-20"></div>
+      <div className="absolute inset-0 radial-gradient"></div>
+      
+      <div className="max-w-4xl mx-auto relative z-10">
+        <div className="premium-card rounded-3xl p-12 relative overflow-hidden">
           <div className="absolute inset-0 w-full h-full opacity-30">
             <SparklesCore
               background="transparent"

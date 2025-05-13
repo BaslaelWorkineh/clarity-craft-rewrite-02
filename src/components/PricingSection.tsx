@@ -51,10 +51,14 @@ const PRICING_PLANS = [
 
 export default function PricingSection() {
   return (
-    <section id="pricing" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section id="pricing" className="py-32 px-6 relative">
+      {/* Premium grid background */}
+      <div className="absolute inset-0 grid-bg opacity-30"></div>
+      <div className="absolute inset-0 radial-gradient"></div>
+      
+      <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold purple-text-gradient purple-glow">Simple Pricing</h2>
+          <h2 className="text-4xl font-bold purple-text-gradient purple-glow">Premium Plans</h2>
           <p className="mt-3 text-xl text-foreground/80">Choose the plan that's right for you</p>
         </div>
         
@@ -62,7 +66,7 @@ export default function PricingSection() {
           {PRICING_PLANS.map((plan, index) => (
             <div 
               key={index} 
-              className={`glass-morphism rounded-2xl p-8 ${plan.popular ? 'border-clarity-purple ring-1 ring-clarity-purple/50' : 'border-white/10'} relative`}
+              className={`${plan.popular ? 'premium-card' : 'glass-morphism'} rounded-2xl p-8 ${plan.popular ? 'border-clarity-purple ring-1 ring-clarity-purple/30' : 'border-white/10'} relative transform transition-all duration-300 hover:-translate-y-1`}
             >
               {plan.popular && (
                 <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-clarity-purple text-white text-xs font-bold px-4 py-1 rounded-full">
@@ -90,7 +94,7 @@ export default function PricingSection() {
               
               <div className="mt-8">
                 <Button 
-                  className={`w-full ${plan.popular ? 'bg-clarity-purple hover:bg-clarity-purple/90' : 'bg-white/10 hover:bg-white/20'}`}
+                  className={`w-full ${plan.popular ? 'bg-clarity-purple hover:bg-clarity-purple/90 purple-button-glow' : 'bg-black border border-white/10 hover:bg-white/5'}`}
                 >
                   {plan.cta}
                 </Button>

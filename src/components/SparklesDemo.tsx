@@ -2,6 +2,7 @@
 "use client";
 import React from "react";
 import { SparklesCore } from "@/components/ui/sparkles";
+import { ArrowRight } from "lucide-react";
 
 export function SparklesHero() {
   return (
@@ -34,9 +35,12 @@ export function SparklesHero() {
 export function SparklesFeatures() {
   return (
     <div className="py-20 px-6 relative">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      <div className="absolute inset-0 grid-bg opacity-30"></div>
+      <div className="absolute inset-0 radial-gradient"></div>
+      
+      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 relative z-10">
         {/* Feature 1 */}
-        <div className="glass-morphism rounded-xl p-8 relative overflow-hidden">
+        <div className="premium-card rounded-xl p-8 relative overflow-hidden transform transition-all duration-300 hover:-translate-y-1">
           <div className="absolute inset-0 w-full h-full opacity-30">
             <SparklesCore
               background="transparent"
@@ -58,15 +62,13 @@ export function SparklesFeatures() {
             </p>
             <button className="mt-4 text-clarity-purple flex items-center text-sm font-medium">
               Explore more
-              <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <ArrowRight className="w-4 h-4 ml-1" />
             </button>
           </div>
         </div>
 
         {/* Feature 2 */}
-        <div className="glass-morphism rounded-xl p-8 relative overflow-hidden">
+        <div className="premium-card rounded-xl p-8 relative overflow-hidden transform transition-all duration-300 hover:-translate-y-1">
           <div className="absolute inset-0 w-full h-full opacity-30">
             <SparklesCore
               background="transparent"
@@ -88,15 +90,13 @@ export function SparklesFeatures() {
             </p>
             <button className="mt-4 text-clarity-purple flex items-center text-sm font-medium">
               Explore more
-              <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <ArrowRight className="w-4 h-4 ml-1" />
             </button>
           </div>
         </div>
 
         {/* Feature 3 */}
-        <div className="glass-morphism rounded-xl p-8 relative overflow-hidden">
+        <div className="premium-card rounded-xl p-8 relative overflow-hidden transform transition-all duration-300 hover:-translate-y-1">
           <div className="absolute inset-0 w-full h-full opacity-30">
             <SparklesCore
               background="transparent"
@@ -118,15 +118,13 @@ export function SparklesFeatures() {
             </p>
             <button className="mt-4 text-clarity-purple flex items-center text-sm font-medium">
               Explore more
-              <svg className="w-4 h-4 ml-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+              <ArrowRight className="w-4 h-4 ml-1" />
             </button>
           </div>
         </div>
       </div>
       
-      <div className="mt-24 text-center">
+      <div className="mt-24 text-center relative z-10">
         <h2 className="text-5xl font-bold">
           <span className="text-gradient">ELEVATE YOUR</span><br/>
           <span className="purple-text-gradient">COMMUNICATION</span>

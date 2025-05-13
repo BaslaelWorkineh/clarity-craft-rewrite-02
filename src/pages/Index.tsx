@@ -10,9 +10,10 @@ import { SparklesHero, SparklesFeatures } from "@/components/SparklesDemo";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-clarity-dark-purple text-white">
+    <div className="min-h-screen flex flex-col bg-black text-white">
+      <div className="fixed inset-0 grid-bg opacity-20 pointer-events-none"></div>
       <Navbar />
-      <main className="flex-grow">
+      <main className="flex-grow relative z-10">
         <SparklesHero />
         <ToneDemo />
         <SparklesFeatures />
