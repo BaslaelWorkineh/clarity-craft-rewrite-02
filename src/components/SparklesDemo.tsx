@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 export function SparklesHero() {
   return (
-    <div className="h-[85vh] relative w-full bg-transparent flex flex-col items-center justify-center overflow-hidden">
+    <div className="h-[100vh] relative w-full bg-transparent flex flex-col items-center justify-center overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-20"></div>
       <div className="absolute inset-0 radial-gradient"></div>
       <div className="spotlight-gradient-large absolute top-1/3 left-1/4"></div>
