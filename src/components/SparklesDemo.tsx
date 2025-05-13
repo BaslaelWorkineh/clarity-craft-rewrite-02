@@ -1,10 +1,8 @@
-
 "use client";
 import React from "react";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { ArrowRight } from "lucide-react";
 import { Button } from "./ui/button";
-import { motion } from "framer-motion";
 
 export function SparklesHero() {
   return (
@@ -22,41 +20,21 @@ export function SparklesHero() {
           particleDensity={100}
           className="w-full h-full"
           particleColor="#9b87f5"
-          speed={0.8}
+          speed={0}
         />
       </div>
       
-      <motion.div 
-        className="flex flex-col items-center justify-center relative z-20 px-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <motion.h1 
-          className="md:text-7xl text-4xl lg:text-8xl font-bold text-center mb-2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
+      <div className="flex flex-col items-center justify-center relative z-20 px-4">
+        <h1 className="md:text-7xl text-4xl lg:text-8xl font-bold text-center mb-2">
           <span className="text-gradient">ELEVATE YOUR</span><br/>
           <span className="purple-text-gradient">COMMUNICATION</span>
-        </motion.h1>
+        </h1>
         
-        <motion.p 
-          className="mt-6 text-lg md:text-xl text-foreground/80 max-w-3xl text-center px-4"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
+        <p className="mt-6 text-lg md:text-xl text-foreground/80 max-w-3xl text-center px-4">
           Transform your messages with perfect tone control. Clarity Bubble helps you craft the right message for every situation, adapting automatically to your context.
-        </motion.p>
+        </p>
         
-        <motion.div 
-          className="mt-10 flex flex-wrap gap-4 justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
+        <div className="mt-10 flex flex-wrap gap-4 justify-center">
           <Button className="bg-clarity-purple hover:bg-clarity-purple/90 text-white px-8 py-6 rounded-none text-lg flex items-center gap-2 purple-button-glow sharp-border">
             Try it now <ArrowRight className="h-5 w-5" />
           </Button>
@@ -64,14 +42,9 @@ export function SparklesHero() {
           <Button variant="outline" className="bg-transparent border-white/20 hover:bg-white/5 text-white px-8 py-6 rounded-none text-lg sharp-border">
             View demos
           </Button>
-        </motion.div>
+        </div>
         
-        <motion.div 
-          className="glass-morphism rounded-none sharp-border px-6 py-3 mt-16"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-        >
+        <div className="glass-morphism rounded-none sharp-border px-6 py-3 mt-16">
           <div className="flex items-center gap-3">
             <div className="flex -space-x-2">
               {[1, 2, 3, 4].map((i) => (
@@ -84,8 +57,8 @@ export function SparklesHero() {
               <span className="text-clarity-purple font-semibold">10,000+</span> messages transformed daily
             </span>
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
       
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
         <svg className="w-6 h-6 text-clarity-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -98,101 +71,28 @@ export function SparklesHero() {
 
 export function SparklesFeatures() {
   return (
-    <div className="py-20 px-6 relative">
-      <div className="absolute inset-0 grid-bg opacity-30"></div>
-      <div className="absolute inset-0 radial-gradient"></div>
-      
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 relative z-10">
-        {/* Feature 1 */}
-        <div className="premium-card rounded-xl p-8 relative overflow-hidden transform transition-all duration-300 hover:-translate-y-1">
-          <div className="absolute inset-0 w-full h-full opacity-30">
-            <SparklesCore
-              background="transparent"
-              minSize={0.2}
-              maxSize={0.6}
-              particleDensity={60}
-              particleColor="#9b87f5"
-              speed={0.2}
-              className="w-full h-full"
-            />
-          </div>
-          <div className="relative z-10">
-            <div className="w-12 h-12 rounded-full bg-clarity-purple/20 flex items-center justify-center mb-4">
-              <span className="text-clarity-purple text-xl">✨</span>
-            </div>
-            <h3 className="text-xl font-bold mb-2">BEAUTIFULLY DESIGNED</h3>
-            <p className="text-foreground/80">
-              Craft beautiful messages with our advanced tone detection and suggestion system.
-            </p>
-            <button className="mt-4 text-clarity-purple flex items-center text-sm font-medium">
-              Explore more
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </button>
-          </div>
-        </div>
-
-        {/* Feature 2 */}
-        <div className="premium-card rounded-xl p-8 relative overflow-hidden transform transition-all duration-300 hover:-translate-y-1">
-          <div className="absolute inset-0 w-full h-full opacity-30">
-            <SparklesCore
-              background="transparent"
-              minSize={0.2}
-              maxSize={0.6}
-              particleDensity={60}
-              particleColor="#9b87f5"
-              speed={0.2}
-              className="w-full h-full"
-            />
-          </div>
-          <div className="relative z-10">
-            <div className="w-12 h-12 rounded-full bg-clarity-purple/20 flex items-center justify-center mb-4">
-              <span className="text-clarity-purple text-xl">📱</span>
-            </div>
-            <h3 className="text-xl font-bold mb-2">FULLY RESPONSIVE</h3>
-            <p className="text-foreground/80">
-              Access your message history and tone adjustments on any device, anytime.
-            </p>
-            <button className="mt-4 text-clarity-purple flex items-center text-sm font-medium">
-              Explore more
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </button>
-          </div>
-        </div>
-
-        {/* Feature 3 */}
-        <div className="premium-card rounded-xl p-8 relative overflow-hidden transform transition-all duration-300 hover:-translate-y-1">
-          <div className="absolute inset-0 w-full h-full opacity-30">
-            <SparklesCore
-              background="transparent"
-              minSize={0.2}
-              maxSize={0.6}
-              particleDensity={60}
-              particleColor="#9b87f5"
-              speed={0.2}
-              className="w-full h-full"
-            />
-          </div>
-          <div className="relative z-10">
-            <div className="w-12 h-12 rounded-full bg-clarity-purple/20 flex items-center justify-center mb-4">
-              <span className="text-clarity-purple text-xl">🎛️</span>
-            </div>
-            <h3 className="text-xl font-bold mb-2">CUSTOMIZABLE</h3>
-            <p className="text-foreground/80">
-              Create your own tone presets and customize the app experience to fit your needs.
-            </p>
-            <button className="mt-4 text-clarity-purple flex items-center text-sm font-medium">
-              Explore more
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </button>
-          </div>
-        </div>
+    <div className="relative w-full bg-transparent flex items-center justify-center py-10 md:py-16">
+      <div className="absolute inset-0 grid-bg opacity-10"></div>
+      <div className="absolute inset-0 radial-gradient opacity-30"></div>
+      <div className="w-full absolute inset-0 h-full">
+        <SparklesCore
+          id="tsparticlesfeatures"
+          background="transparent"
+          minSize={0.4}
+          maxSize={1.0}
+          particleDensity={50}
+          className="w-full h-full"
+          particleColor="#9b87f5"
+          speed={0}
+        />
       </div>
-      
-      <div className="mt-24 text-center relative z-10">
-        <h2 className="text-5xl font-bold">
-          <span className="text-gradient">ELEVATE YOUR</span><br/>
-          <span className="purple-text-gradient">COMMUNICATION</span>
+      <div className="relative z-10 text-center px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-gradient mb-2 purple-glow">
+          Sparkling Features
         </h2>
+        <p className="text-foreground/70 max-w-xl mx-auto">
+          Discover how ClarityBubble enhances your writing with intelligent suggestions and seamless integration.
+        </p>
       </div>
     </div>
   );

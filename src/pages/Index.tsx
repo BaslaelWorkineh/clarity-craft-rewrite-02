@@ -11,7 +11,7 @@ import { ArrowRight, MessageSquare, Wand2, ZapIcon } from "lucide-react";
 
 const Index = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-black text-white">
+    <div className="min-h-screen flex flex-col bg-black text-white overflow-hidden">
       <div className="fixed inset-0 grid-bg opacity-20 pointer-events-none"></div>
       <Navbar />
       <main className="flex-grow relative z-10">
