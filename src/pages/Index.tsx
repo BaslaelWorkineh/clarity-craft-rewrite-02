@@ -97,7 +97,7 @@ const Index = () => {
         
         <ToneDemo />
         <Features />
-        <SparklesFeatures />
+        {/* <SparklesFeatures /> */}
         <PricingSection />
         <CTASection />
 
