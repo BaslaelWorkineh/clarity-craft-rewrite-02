@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Menu, X } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { SignInButton, SignUpButton, UserButton, useUser } from "@clerk/clerk-react";
 
 export default function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
   const isMobile = useIsMobile();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { isSignedIn } = useUser();
@@ -23,10 +24,10 @@ export default function Navbar() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center gap-1">
-              <div className="h-9 w-9 sharp-border bg-gradient-to-br from-clarity-purple to-clarity-deep-purple flex items-center justify-center">
+              {/* <div className="h-9 w-9 sharp-border bg-gradient-to-br from-clarity-purple to-clarity-deep-purple flex items-center justify-center">
                 <span className="text-white font-bold">CB</span>
-              </div>
-              <span className="text-xl font-bold">Clarity<span className="text-clarity-purple">Bubble</span></span>
+              </div> */}
+              <span className="text-xl font-bold">C<span className="text-clarity-purple">Bubble</span></span>
               <div className="ml-1 px-2 py-0.5 text-[10px] font-medium bg-clarity-purple/20 text-clarity-purple sharp-border">
                 BETA
               </div>
@@ -67,9 +68,13 @@ export default function Navbar() {
             <div className="hidden md:block">
               {!isSignedIn && (
                 <div className="flex gap-2">
-                  <SignInButton mode="modal">
-                    <Button variant="outline" className="rounded-none sharp-border">Sign In</Button>
-                  </SignInButton>
+                  <Button 
+                    variant="outline" 
+                    className="rounded-none sharp-border"
+                    onClick={() => navigate('/sign-in')}
+                  >
+                    Sign In
+                  </Button>
                   <SignUpButton mode="modal">
                     <Button className="bg-clarity-purple hover:bg-clarity-purple/90 text-white rounded-none sharp-border flex items-center gap-2">
                       Sign Up <ArrowRight className="h-4 w-4" />
@@ -131,9 +136,16 @@ export default function Navbar() {
               {/* Mobile CTA Button */}
               {!isSignedIn && (
                 <>
-                  <SignInButton mode="modal">
-                    <Button variant="outline" className="w-full rounded-none sharp-border">Sign In</Button>
-                  </SignInButton>
+                  <Button 
+                    variant="outline" 
+                    className="w-full rounded-none sharp-border"
+                    onClick={() => {
+                      navigate('/sign-in');
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    Sign In
+                  </Button>
                   <SignUpButton mode="modal">
                     <Button className="w-full bg-clarity-purple hover:bg-clarity-purple/90 text-white rounded-none sharp-border flex items-center justify-center gap-2 mt-2">
                       Sign Up <ArrowRight className="h-4 w-4" />

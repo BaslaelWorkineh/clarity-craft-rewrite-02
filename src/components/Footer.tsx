@@ -12,7 +12,6 @@ export default function Footer() {
               <li><Link to="#features" className="text-foreground/70 hover:text-foreground text-sm">Features</Link></li>
               <li><Link to="#pricing" className="text-foreground/70 hover:text-foreground text-sm">Pricing</Link></li>
               <li><Link to="#" className="text-foreground/70 hover:text-foreground text-sm">Browser Extension</Link></li>
-              <li><Link to="#" className="text-foreground/70 hover:text-foreground text-sm">Integrations</Link></li>
             </ul>
           </div>
           
@@ -20,7 +19,6 @@ export default function Footer() {
             <h3 className="font-bold mb-4">Resources</h3>
             <ul className="space-y-2">
               <li><Link to="#" className="text-foreground/70 hover:text-foreground text-sm">Documentation</Link></li>
-              <li><Link to="#" className="text-foreground/70 hover:text-foreground text-sm">API</Link></li>
               <li><Link to="#" className="text-foreground/70 hover:text-foreground text-sm">Guides</Link></li>
               <li><Link to="#" className="text-foreground/70 hover:text-foreground text-sm">Help Center</Link></li>
             </ul>
@@ -30,8 +28,6 @@ export default function Footer() {
             <h3 className="font-bold mb-4">Company</h3>
             <ul className="space-y-2">
               <li><Link to="#" className="text-foreground/70 hover:text-foreground text-sm">About</Link></li>
-              <li><Link to="#" className="text-foreground/70 hover:text-foreground text-sm">Blog</Link></li>
-              <li><Link to="#" className="text-foreground/70 hover:text-foreground text-sm">Careers</Link></li>
               <li><Link to="#" className="text-foreground/70 hover:text-foreground text-sm">Contact</Link></li>
             </ul>
           </div>
@@ -48,10 +44,10 @@ export default function Footer() {
         
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
-            <div className="h-8 w-8 rounded-full bg-gradient-to-br from-clarity-purple to-clarity-deep-purple flex items-center justify-center">
+            {/* <div className="h-8 w-8 rounded-full bg-gradient-to-br from-clarity-purple to-clarity-deep-purple flex items-center justify-center">
               <span className="text-white font-bold text-xs">CB</span>
-            </div>
-            <span className="font-bold">Clarity<span className="text-clarity-purple">Bubble</span></span>
+            </div> */}
+            <span className="font-bold">C<span className="text-clarity-purple">Bubble</span></span>
           </div>
           
           <div className="text-sm text-foreground/60">

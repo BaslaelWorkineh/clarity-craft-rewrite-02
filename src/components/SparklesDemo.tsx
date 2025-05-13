@@ -35,12 +35,20 @@ export function SparklesHero() {
         </p>
         
         <div className="mt-10 flex flex-wrap gap-4 justify-center">
-          <Button className="bg-clarity-purple hover:bg-clarity-purple/90 text-white px-8 py-6 rounded-none text-lg flex items-center gap-2 purple-button-glow sharp-border">
+          {/* <Button className="bg-clarity-purple hover:bg-clarity-purple/90 text-white px-8 py-6 rounded-none text-lg flex items-center gap-2 purple-button-glow sharp-border">
             Try it now <ArrowRight className="h-5 w-5" />
           </Button>
           
           <Button variant="outline" className="bg-transparent border-white/20 hover:bg-white/5 text-white px-8 py-6 rounded-none text-lg sharp-border">
             View demos
+          </Button> */}
+          <Button
+            className="bg-clarity-purple hover:bg-clarity-purple/90 text-white px-8 py-6 rounded-none text-lg flex items-center gap-2 purple-button-glow sharp-border"
+            asChild
+          >
+            <a href="/waitlist">
+              Join Waitlist <ArrowRight className="h-5 w-5" />
+            </a>
           </Button>
         </div>
         
@@ -54,7 +62,7 @@ export function SparklesHero() {
               ))}
             </div>
             <span className="text-sm font-medium">
-              <span className="text-clarity-purple font-semibold">10,000+</span> messages transformed daily
+              <span className="text-clarity-purple font-semibold">10,000+</span> messages can be transformed daily
             </span>
           </div>
         </div>

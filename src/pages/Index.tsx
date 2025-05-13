@@ -1,4 +1,3 @@
-
 import Navbar from "@/components/Navbar";
 import ToneDemo from "@/components/ToneDemo";
 import Features from "@/components/Features";
@@ -8,6 +7,7 @@ import Footer from "@/components/Footer";
 import { SparklesHero, SparklesFeatures } from "@/components/SparklesDemo";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageSquare, Wand2, ZapIcon } from "lucide-react";
+import { Link } from "react-router-dom"; // Import Link
 
 const Index = () => {
   return (
@@ -55,17 +55,21 @@ const Index = () => {
                   </motion.div>
                 ))}
                 
-                <motion.a
-                  href="#features"
+                <motion.div // Changed from motion.a to motion.div for Link wrapping
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                   viewport={{ once: true }}
-                  className="bg-clarity-purple text-white py-3 px-6 mt-4 sharp-border flex items-center justify-center gap-2 group hover:bg-clarity-purple/90 transition-colors purple-button-glow w-full md:w-1/2 mx-auto"
+                  className="w-full md:w-1/2 mx-auto mt-4"
                 >
-                  <span>Explore features</span>
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </motion.a>
+                  <Link
+                    to="/waitlist" // Link to the wishlist page
+                    className="bg-clarity-purple text-white py-3 px-6 sharp-border flex items-center justify-center gap-2 group hover:bg-clarity-purple/90 transition-colors purple-button-glow w-full"
+                  >
+                    <span>Try it</span> {/* Changed text to Try it */}
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </motion.div>
               </div>
               
               <motion.div
@@ -114,7 +118,7 @@ const Index = () => {
           <div className="max-w-5xl mx-auto text-center relative z-10">
             <h2 className="text-4xl font-bold text-gradient mb-8">Used by teams at</h2>
             <div className="flex flex-wrap justify-center gap-12 items-center">
-              {["Company 1", "Company 2", "Company 3", "Company 4", "Company 5"].map((company, index) => (
+              {["DamaDash", "Xenon", "Habean Tech", "Xyber Labs", "JarsoAI"].map((company, index) => (
                 <div key={index} className="text-xl font-bold text-foreground/50">
                   {company}
                 </div>

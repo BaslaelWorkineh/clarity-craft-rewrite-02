@@ -1,7 +1,43 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, ShieldCheck, Zap, Repeat2, Megaphone } from "lucide-react";
+import { ArrowRight, CheckCircle, ShieldCheck, Zap, Repeat2, Megaphone, Loader2 } from "lucide-react";
+import { motion } from "framer-motion";
+import { toast } from "sonner"; // Import toast
+import React, { useState } from "react";
 
 export default function CTASection() {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setLoading(true);
+    try {
+      const res = await fetch("https://claritybubble-backend.onrender.com/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (res.ok) {
+        toast.success("Thanks for subscribing!", {
+          description: "We'll keep you updated on the latest features.",
+        });
+        setEmail("");
+      } else {
+        toast.error("Something went wrong.", {
+          description: "Please try again later or contact support.",
+          style: { background: '#f87171', color: '#fff' },
+        });
+      }
+    } catch (err) {
+      toast.error("Network error.", {
+        description: "Please check your connection and try again.",
+        style: { background: '#f87171', color: '#fff' },
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className="py-32 px-6 relative">
       <div className="absolute inset-0 grid-bg opacity-20"></div>
@@ -33,13 +69,18 @@ export default function CTASection() {
 
               
               <p className="mt-6 text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto">
-                Join thousands of professionals who use Clarity Bubble to communicate with confidence across all platforms.
+                Join thousands of professionals who will use Clarity Bubble to communicate with confidence across all platforms.
               </p>
 
               
-              <div className="mt-10">
-                <Button className="bg-clarity-purple hover:bg-clarity-purple/90 text-white px-10 py-7 rounded-none sharp-border text-lg flex items-center gap-2 purple-button-glow mx-auto">
-                  Get started for free <ArrowRight className="h-5 w-5" />
+              <div className="mt-10 flex flex-row justify-center gap-4">
+                <Button
+                  className="bg-clarity-purple hover:bg-clarity-purple/90 text-white px-10 py-7 rounded-none sharp-border text-lg flex items-center gap-2 purple-button-glow"
+                  asChild
+                >
+                  <a href="/waitlist">
+                    Get started for free <ArrowRight className="h-5 w-5" />
+                  </a>
                 </Button>
               </div>
 
@@ -87,16 +128,26 @@ export default function CTASection() {
               <span className="text-foreground/90">Stay up to date with new features</span>
             </div>
 
-            <div className="flex">
+            <form onSubmit={handleSubmit} className="flex">
               <input
                 type="email"
                 placeholder="Enter your email"
                 className="px-4 py-2 bg-black border border-clarity-purple/20 rounded-none sharp-border focus:outline-none focus:border-clarity-purple/50"
+                required
+                value={email}
+                onChange={e => setEmail(e.target.value)}
               />
-              <Button className="ml-2 bg-clarity-purple hover:bg-clarity-purple/90 text-white rounded-none sharp-border">
-                Subscribe
+              <Button type="submit" className="ml-2 bg-clarity-purple hover:bg-clarity-purple/90 text-white rounded-none sharp-border" disabled={loading}>
+                {loading ? (
+                  <span className="flex items-center gap-2">
+                    <Loader2 className="animate-spin h-4 w-4" />
+                    Subscribing...
+                  </span>
+                ) : (
+                  "Subscribe"
+                )}
               </Button>
-            </div>
+            </form>
           </div>
         </div>
         {/* End of new relative wrapper */}

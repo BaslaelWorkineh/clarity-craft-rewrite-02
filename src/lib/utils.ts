@@ -8,7 +8,7 @@ export function cn(...inputs: ClassValue[]) {
 // Utility to check authentication status with backend
 export async function checkAuthStatus(sessionToken: string): Promise<boolean> {
   try {
-    const res = await fetch("https://claritybubble-backend.vercel.app/api/auth-status", {
+    const res = await fetch("https://claritybubble-backend.onrender.com/api/auth-status", {
       headers: {
         Authorization: `Bearer ${sessionToken}`,
       },
