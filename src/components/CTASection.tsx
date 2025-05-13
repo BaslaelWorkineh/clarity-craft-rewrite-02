@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { motion } from "framer-motion";
@@ -11,15 +10,21 @@ export default function CTASection() {
       <div className="absolute inset-0 radial-gradient"></div>
       <div className="spotlight-gradient absolute bottom-0 right-0"></div>
       <div className="spotlight-gradient-large absolute top-0 left-0"></div>
-      
-      <motion.div 
+
+      <motion.div
         className="max-w-5xl mx-auto relative z-10"
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-        <div className="premium-card rounded-none sharp-border border-plus-pattern p-12 relative overflow-hidden">
+        <div className="premium-card relative rounded-none sharp-border border-plus-pattern p-12 overflow-hidden">
+          {/* Corner + symbols */}
+          <span className="absolute top-0 left-0 text-white text-sm">+</span>
+          <span className="absolute top-0 right-0 text-white text-sm">+</span>
+          <span className="absolute bottom-0 left-0 text-white text-sm">+</span>
+          <span className="absolute bottom-0 right-0 text-white text-sm">+</span>
+
           <div className="absolute inset-0 w-full h-full opacity-30">
             <SparklesCore
               background="transparent"
@@ -31,9 +36,9 @@ export default function CTASection() {
               className="w-full h-full"
             />
           </div>
-          
+
           <div className="relative text-center z-10">
-            <motion.h2 
+            <motion.h2
               className="text-4xl md:text-5xl font-bold text-gradient"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -42,8 +47,8 @@ export default function CTASection() {
             >
               Ready to transform your communication? ✨
             </motion.h2>
-            
-            <motion.p 
+
+            <motion.p
               className="mt-6 text-lg md:text-xl text-foreground/80 max-w-2xl mx-auto"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -52,8 +57,8 @@ export default function CTASection() {
             >
               Join thousands of professionals who use Clarity Bubble to communicate with confidence across all platforms.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               className="mt-10"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -64,8 +69,8 @@ export default function CTASection() {
                 Get started for free <ArrowRight className="h-5 w-5" />
               </Button>
             </motion.div>
-            
-            <motion.p 
+
+            <motion.p
               className="mt-4 text-sm text-foreground/60"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -74,8 +79,8 @@ export default function CTASection() {
             >
               No credit card required. Free plan includes 10 rewrites per day.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               className="mt-10 flex flex-wrap justify-center gap-8"
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -107,8 +112,8 @@ export default function CTASection() {
             </motion.div>
           </div>
         </div>
-        
-        <motion.div 
+
+        <motion.div
           className="mt-16 py-6 glass-morphism sharp-border rounded-none"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -118,15 +123,15 @@ export default function CTASection() {
           <div className="flex flex-col md:flex-row items-center justify-between px-6 gap-4">
             <div className="flex items-center gap-3">
               <div className="h-8 w-8 sharp-border bg-clarity-purple/20 flex items-center justify-center">
-                <span className="text-clarity-purple">📣</span>
+                <Megaphone className="text-clarity-purple w-4 h-4" />
               </div>
               <span className="text-foreground/90">Stay up to date with new features</span>
             </div>
-            
+
             <div className="flex">
-              <input 
-                type="email" 
-                placeholder="Enter your email" 
+              <input
+                type="email"
+                placeholder="Enter your email"
                 className="px-4 py-2 bg-black border border-clarity-purple/20 rounded-none sharp-border focus:outline-none focus:border-clarity-purple/50"
               />
               <Button className="ml-2 bg-clarity-purple hover:bg-clarity-purple/90 text-white rounded-none sharp-border">
