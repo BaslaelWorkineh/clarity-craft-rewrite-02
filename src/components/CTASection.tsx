@@ -1,8 +1,8 @@
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 import { SparklesCore } from "@/components/ui/sparkles";
 import { motion } from "framer-motion";
+import { ShieldCheck, Zap, Repeat2, Megaphone, ArrowRight } from "lucide-react";
 
 export default function CTASection() {
   return (
@@ -82,25 +82,27 @@ export default function CTASection() {
               transition={{ duration: 0.5, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-none sharp-border bg-clarity-purple/10 flex items-center justify-center">
-                  <span className="text-clarity-purple text-xl">🔒</span>
+              <div className="mt-10 flex flex-wrap justify-center gap-8">
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-none sharp-border bg-clarity-purple/10 flex items-center justify-center">
+                    <ShieldCheck className="text-clarity-purple w-5 h-5" />
+                  </div>
+                  <span className="text-foreground/80">Enterprise-grade security</span>
                 </div>
-                <span className="text-foreground/80">Enterprise-grade security</span>
-              </div>
-              
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-none sharp-border bg-clarity-purple/10 flex items-center justify-center">
-                  <span className="text-clarity-purple text-xl">⚡</span>
+
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-none sharp-border bg-clarity-purple/10 flex items-center justify-center">
+                    <Zap className="text-clarity-purple w-5 h-5" />
+                  </div>
+                  <span className="text-foreground/80">Real-time suggestions</span>
                 </div>
-                <span className="text-foreground/80">Real-time suggestions</span>
-              </div>
-              
-              <div className="flex items-center gap-2">
-                <div className="w-10 h-10 rounded-none sharp-border bg-clarity-purple/10 flex items-center justify-center">
-                  <span className="text-clarity-purple text-xl">🔄</span>
+
+                <div className="flex items-center gap-2">
+                  <div className="w-10 h-10 rounded-none sharp-border bg-clarity-purple/10 flex items-center justify-center">
+                    <Repeat2 className="text-clarity-purple w-5 h-5" />
+                  </div>
+                  <span className="text-foreground/80">Unlimited integrations</span>
                 </div>
-                <span className="text-foreground/80">Unlimited integrations</span>
               </div>
             </motion.div>
           </div>
