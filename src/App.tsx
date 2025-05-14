@@ -10,6 +10,7 @@ import TemplatesPage from "./pages/Templates";
 import AboutPage from "./pages/About";
 import NotFound from "./pages/NotFound";
 import SignInPage from "./pages/SignInPage";
+import SignUpPage from "./pages/SignUpPage";
 import WaitlistPage from "./pages/Waitlist"; // Import the Waitlist page
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/templates" element={<TemplatesPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/sign-in" element={<SignInPage />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
           <Route path="/waitlist" element={<WaitlistPage />} /> {/* Add route for Waitlist */}
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

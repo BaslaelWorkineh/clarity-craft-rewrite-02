@@ -34,25 +34,8 @@ export default function SignInPage() {
     <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
       <SignIn
         routing="path"
-        path="/sign-in" // This component will handle the /sign-in route
-        signUpUrl="/sign-up" // Link to your sign-up page
-        afterSignInUrl={async ({ session }) => {
-          if (session) {
-            const token = await session.getToken();
-            if (token && EXTENSION_ID) {
-              window.location.href = `chrome-extension://${EXTENSION_ID}/popup.html?session=${token}`;
-            } else if (!EXTENSION_ID) {
-              console.error("ClarityBubble: EXTENSION_ID is not available. Cannot redirect to extension. Falling back to home.");
-              window.location.href = '/'; // Fallback redirect
-            } else {
-              console.warn("ClarityBubble: Session token not available after sign-in. Falling back to home.");
-              window.location.href = '/'; // Fallback redirect
-            }
-          } else {
-            console.warn("ClarityBubble: Session object not available after sign-in. Falling back to home.");
-            window.location.href = '/'; // Fallback redirect
-          }
-        }}
+        path="/sign-in"
+        forceRedirectUrl={popupUrl}
       />
     </div>
   );

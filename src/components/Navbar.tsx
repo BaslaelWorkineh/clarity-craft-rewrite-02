@@ -66,6 +66,9 @@ export default function Navbar() {
           <div className="flex items-center">
             {/* CTA Button (Desktop) */}
             <div className="hidden md:block">
+              {isSignedIn && (
+                <UserButton signOutRedirectUrl="/" />
+              )}
               {!isSignedIn && (
                 <div className="flex gap-2">
                   <Button 
@@ -75,15 +78,13 @@ export default function Navbar() {
                   >
                     Sign In
                   </Button>
-                  <SignUpButton mode="modal">
-                    <Button className="bg-clarity-purple hover:bg-clarity-purple/90 text-white rounded-none sharp-border flex items-center gap-2">
-                      Sign Up <ArrowRight className="h-4 w-4" />
-                    </Button>
-                  </SignUpButton>
+                  <Button
+                    className="bg-clarity-purple hover:bg-clarity-purple/90 text-white rounded-none sharp-border flex items-center gap-2"
+                    onClick={() => navigate('/sign-up')}
+                  >
+                    Sign Up <ArrowRight className="h-4 w-4" />
+                  </Button>
                 </div>
-              )}
-              {isSignedIn && (
-                <UserButton afterSignOutUrl="/" />
               )}
             </div>
 
@@ -146,16 +147,20 @@ export default function Navbar() {
                   >
                     Sign In
                   </Button>
-                  <SignUpButton mode="modal">
-                    <Button className="w-full bg-clarity-purple hover:bg-clarity-purple/90 text-white rounded-none sharp-border flex items-center justify-center gap-2 mt-2">
-                      Sign Up <ArrowRight className="h-4 w-4" />
-                    </Button>
-                  </SignUpButton>
+                  <Button
+                    className="w-full bg-clarity-purple hover:bg-clarity-purple/90 text-white rounded-none sharp-border flex items-center justify-center gap-2 mt-2"
+                    onClick={() => {
+                      navigate('/sign-up');
+                      setIsMenuOpen(false);
+                    }}
+                  >
+                    Sign Up <ArrowRight className="h-4 w-4" />
+                  </Button>
                 </>
               )}
               {isSignedIn && (
                 <div className="w-full flex justify-center mt-2">
-                  <UserButton afterSignOutUrl="/" />
+                  <UserButton signOutRedirectUrl="/" />
                 </div>
               )}
             </div>
