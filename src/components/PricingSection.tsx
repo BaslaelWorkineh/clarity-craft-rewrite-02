@@ -7,44 +7,52 @@ const PRICING_PLANS = [
 	{
 		name: "Free",
 		price: "$0",
-		description: "Perfect for trying out Clarity Bubble",
+		period: "/month",
+		description:
+			"Try ClarityBubble with basic tone modification features.",
 		features: [
-			"10 tone rewrites per day",
-			"3 tone types",
-			"Basic message history",
-			"Text-only interface",
+			"100 AI Credits per month",
+			"Standard AI Model",
+			"Tone Modification for LinkedIn, X (Twitter), and more",
+			
+			"Limited Tone Selection",
+			"No extra hidden charge",
 		],
 		cta: "Start for Free",
 		popular: false,
 	},
 	{
 		name: "Premium",
-		price: "$11.99",
+		price: "$11",
 		period: "/month",
-		description: "Advanced tone rewriting and integrations for power users.",
+		description:
+			"Unlock more credits and advanced tone modification features.",
 		features: [
-			"Unlimited rewrites",
-			"All tone types",
-			"Gmail/Slack/LinkedIn integration",
-			"Communication analytics",
-			"Priority support",
+			"1,000 AI Credits per month",
+			"Standard AI Model",
+			"Tone Modification for LinkedIn, X (Twitter), and more",
+			
+			"Unlimited Tone Selection",
+			"No extra hidden charge",
 		],
-		cta: "Get Premium Plan",
+		cta: "Get the plan",
 		popular: true,
 	},
 	{
-		name: "Production",
-		price: "$24.99",
+		name: "Pro",
+		price: "$25",
 		period: "/month",
-		description: "For teams and businesses needing robust, production-grade features.",
+		description:
+			"For power users: more credits, advanced models, and all features.",
 		features: [
-			"Everything in Premium",
-			"Team management & collaboration",
-			"Advanced analytics & reporting",
-			"Custom integrations",
-			"Dedicated support",
+			"3,000 AI Credits per month",
+			"GPT-4.1 & Claude 3.5 Models",
+			"Tone Modification for LinkedIn, X (Twitter), and more",
+			
+			"Unlimited Tone Selection",
+			"No extra hidden charge",
 		],
-		cta: "Upgrade to Production",
+		cta: "Get the plan",
 		popular: false,
 	},
 ];
@@ -81,6 +89,7 @@ export default function PricingSection() {
 
 								<motion.div
 									className="premium-card relative overflow-hidden rounded-none sharp-border border-plus-pattern p-8 border-clarity-purple ring-1 ring-clarity-purple/30 w-full flex flex-col h-full min-h-[520px]"
+									style={{height: '100%'}}
 									whileHover={{
 										boxShadow: "0 0 25px rgba(255, 215, 0, 0.5)",
 									}}
@@ -130,6 +139,7 @@ export default function PricingSection() {
 							<motion.div
 								key={plan.name}
 								className="glass-morphism rounded-none sharp-border border-plus-pattern p-8 border-white/10 relative transform transition-all duration-300 hover:-translate-y-1 w-full flex flex-col h-full flex-1 min-w-[300px] max-w-[350px] min-h-[520px]"
+								style={{height: '100%'}}
 							>
 								<div className="text-center">
 									<h3 className="text-xl font-bold">{plan.name}</h3>
