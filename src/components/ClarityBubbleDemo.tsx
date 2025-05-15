@@ -401,6 +401,7 @@ const ClarityBubbleDemo = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
+          onClick={() => window.location.href = '/waitlist'}
         >
           <span className="relative z-10">Try ClarityBubble Now</span>
           <motion.div 
