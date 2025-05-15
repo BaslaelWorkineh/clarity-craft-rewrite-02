@@ -18,10 +18,10 @@ const PRICING_PLANS = [
 		popular: false,
 	},
 	{
-		name: "Premium", // Renamed from "Pro"
-		price: "$6.99",
+		name: "Premium",
+		price: "$11.99",
 		period: "/month",
-		description: "Everything you need for perfect communication",
+		description: "Advanced tone rewriting and integrations for power users.",
 		features: [
 			"Unlimited rewrites",
 			"All tone types",
@@ -29,8 +29,23 @@ const PRICING_PLANS = [
 			"Communication analytics",
 			"Priority support",
 		],
-		cta: "Get Premium Plan", // Updated CTA
+		cta: "Get Premium Plan",
 		popular: true,
+	},
+	{
+		name: "Production",
+		price: "$24.99",
+		period: "/month",
+		description: "For teams and businesses needing robust, production-grade features.",
+		features: [
+			"Everything in Premium",
+			"Team management & collaboration",
+			"Advanced analytics & reporting",
+			"Custom integrations",
+			"Dedicated support",
+		],
+		cta: "Upgrade to Production",
+		popular: false,
 	},
 ];
 
@@ -54,18 +69,18 @@ export default function PricingSection() {
 				</div>
 
 				{/* Adjusted grid for 2 cards and centered them */}
-				<div className="grid md:grid-cols-2 gap-8 justify-center">
+				<div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
 					{PRICING_PLANS.map((plan) =>
 						plan.popular ? (
 							// Premium Plan (formerly Pro, marked as popular)
-							<div key={plan.name} className="relative flex">
+							<div key={plan.name} className="relative flex flex-1 min-w-[300px] max-w-[350px] h-full">
 								{/* MOST POPULAR Badge - Adjusted positioning slightly */}
 								<div className="absolute top-0 left-1/2 transform -translate-x-[48%] -translate-y-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white text-sm font-semibold px-6 py-2 rounded-full shadow-lg shadow-purple-500/50 transform -rotate-3 origin-center whitespace-nowrap z-30">
 									MOST POPULAR
 								</div>
 
 								<motion.div
-									className="premium-card relative overflow-hidden rounded-none sharp-border border-plus-pattern p-8 border-clarity-purple ring-1 ring-clarity-purple/30 w-full flex flex-col"
+									className="premium-card relative overflow-hidden rounded-none sharp-border border-plus-pattern p-8 border-clarity-purple ring-1 ring-clarity-purple/30 w-full flex flex-col h-full min-h-[520px]"
 									whileHover={{
 										boxShadow: "0 0 25px rgba(255, 215, 0, 0.5)",
 									}}
@@ -114,7 +129,7 @@ export default function PricingSection() {
 							// Free Plan
 							<motion.div
 								key={plan.name}
-								className={`glass-morphism rounded-none sharp-border border-plus-pattern p-8 border-white/10 relative transform transition-all duration-300 hover:-translate-y-1 w-full flex flex-col`}
+								className="glass-morphism rounded-none sharp-border border-plus-pattern p-8 border-white/10 relative transform transition-all duration-300 hover:-translate-y-1 w-full flex flex-col h-full flex-1 min-w-[300px] max-w-[350px] min-h-[520px]"
 							>
 								<div className="text-center">
 									<h3 className="text-xl font-bold">{plan.name}</h3>

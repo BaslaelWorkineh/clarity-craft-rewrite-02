@@ -128,16 +128,16 @@ export default function CTASection() {
               <span className="text-foreground/90">Stay up to date with new features</span>
             </div>
 
-            <form onSubmit={handleSubmit} className="flex">
+            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row w-full max-w-md sm:max-w-none gap-2 sm:gap-0">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="px-4 py-2 bg-black border border-clarity-purple/20 rounded-none sharp-border focus:outline-none focus:border-clarity-purple/50"
+                className="px-4 py-2 bg-black border border-clarity-purple/20 rounded-none sharp-border focus:outline-none focus:border-clarity-purple/50 flex-1 min-w-0"
                 required
                 value={email}
                 onChange={e => setEmail(e.target.value)}
               />
-              <Button type="submit" className="ml-2 bg-clarity-purple hover:bg-clarity-purple/90 text-white rounded-none sharp-border" disabled={loading}>
+              <Button type="submit" className="sm:ml-2 bg-clarity-purple hover:bg-clarity-purple/90 text-white rounded-none sharp-border w-full sm:w-auto" disabled={loading}>
                 {loading ? (
                   <span className="flex items-center gap-2">
                     <Loader2 className="animate-spin h-4 w-4" />

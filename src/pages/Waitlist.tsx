@@ -88,7 +88,7 @@ const WaitlistPage: React.FC = () => {
             >
               {count !== null && (
                 <div className="mb-4 text-center text-foreground/80 text-sm">
-                  <span className="font-semibold text-clarity-purple">{count}+ </span> people have already joined the waitlist
+                  <span className="font-semibold text-clarity-purple">{count+20}+ </span> people have already joined the waitlist
                 </div>
               )}
               <form onSubmit={handleSubmit} className="space-y-6">

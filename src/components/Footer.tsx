@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -44,10 +43,7 @@ export default function Footer() {
         
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center gap-2 mb-4 md:mb-0">
-            {/* <div className="h-8 w-8 rounded-full bg-gradient-to-br from-clarity-purple to-clarity-deep-purple flex items-center justify-center">
-              <span className="text-white font-bold text-xs">CB</span>
-            </div> */}
-            <span className="font-bold">C<span className="text-clarity-purple">Bubble</span></span>
+            <img src="/logo.svg" alt="Clarity Bubble Logo" className="h-8 w-8" />
           </div>
           
           <div className="text-sm text-foreground/60">

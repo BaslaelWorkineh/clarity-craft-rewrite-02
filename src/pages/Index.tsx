@@ -8,6 +8,7 @@ import { SparklesHero, SparklesFeatures } from "@/components/SparklesDemo";
 import { motion } from "framer-motion";
 import { ArrowRight, MessageSquare, Wand2, ZapIcon } from "lucide-react";
 import { Link } from "react-router-dom"; // Import Link
+import ClarityBubbleDemo from "@/components/ClarityBubbleDemo";
 
 const Index = () => {
   return (
@@ -30,7 +31,7 @@ const Index = () => {
               Our AI-powered tone detection and modification system helps you communicate effectively in any situation
             </p>
             
-            <div className="mt-12 grid md:grid-cols-2 gap-10">
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-10">
               <div className="grid grid-cols-1 gap-8">
                 {[
                   { step: "01", title: "Write your message", description: "Enter your message in any platform or in our app." },
@@ -56,7 +57,7 @@ const Index = () => {
                 ))}
                 
                 <motion.div // Changed from motion.a to motion.div for Link wrapping
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 20, x: -10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                   viewport={{ once: true }}
@@ -72,29 +73,7 @@ const Index = () => {
                 </motion.div>
               </div>
               
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5 }}
-                viewport={{ once: true }}
-                className="flex items-center justify-center"
-              >
-                <div className="premium-card sharp-border w-full h-[400px] border-clarity-purple/40 border-[3px] flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 grid-bg opacity-30"></div>
-                  <div className="spotlight-gradient absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                  <div className="text-center relative z-10">
-                    <div className="text-clarity-purple font-bold text-lg mb-3">ClarityBubble in action</div>
-                    <p className="text-sm text-white/70 max-w-[250px] mx-auto">
-                      Watch how our AI transforms your message in real-time to match your desired tone
-                    </p>
-                    <div className="mt-6">
-                      <div className="w-[280px] h-[180px] mx-auto border-2 border-dashed border-clarity-purple/50 flex items-center justify-center">
-                        <p className="text-clarity-purple/80">Animation GIF placeholder</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+              <ClarityBubbleDemo />
             </div>
           </div>
         </motion.div>
@@ -105,27 +84,10 @@ const Index = () => {
         <PricingSection />
         <CTASection />
 
-        <motion.div 
-          className="py-16 px-6 relative overflow-hidden"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <div className="absolute inset-0 grid-bg opacity-20"></div>
-          <div className="spotlight-gradient absolute top-0 right-1/4"></div>
-          
-          <div className="max-w-5xl mx-auto text-center relative z-10">
-            <h2 className="text-4xl font-bold text-gradient mb-8">Used by teams at</h2>
-            <div className="flex flex-wrap justify-center gap-12 items-center">
-              {["DamaDash", "Xenon", "Habean Tech", "Xyber Labs", "JarsoAI"].map((company, index) => (
-                <div key={index} className="text-xl font-bold text-foreground/50">
-                  {company}
-                </div>
-              ))}
-            </div>
-          </div>
-        </motion.div>
+        {/* Social icons row (single, dark, no animation) */}
+        <div className="max-w-5xl mx-auto text-center relative z-10 mb-8">
+          <h2 className="text-4xl font-bold text-gradient ">Works on your favorite platforms</h2>
+        </div>
       </main>
       <Footer />
     </div>

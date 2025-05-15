@@ -23,11 +23,8 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link to="/" className="flex items-center gap-1">
-              {/* <div className="h-9 w-9 sharp-border bg-gradient-to-br from-clarity-purple to-clarity-deep-purple flex items-center justify-center">
-                <span className="text-white font-bold">CB</span>
-              </div> */}
-              <span className="text-xl font-bold">C<span className="text-clarity-purple">Bubble</span></span>
+            <Link to="/" className="flex items-center">
+              <img src="/logo.svg" alt="Clarity Bubble Logo" className="h-10 w-9 sharp-border object-contain" />
               <div className="ml-1 px-2 py-0.5 text-[10px] font-medium bg-clarity-purple/20 text-clarity-purple sharp-border">
                 BETA
               </div>
